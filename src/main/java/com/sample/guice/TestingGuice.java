@@ -23,7 +23,7 @@ public class TestingGuice {
 		BillingService billingService;
 		
 		
-		while(!strComando.equals("salir")){
+		while(!strComando.toUpperCase().equals("salir".toUpperCase())){
 			System.out.println("\nIntroduzca un comando: ");
 			strComando = br.readLine();
 			if(!strComando.equals("salir")){
