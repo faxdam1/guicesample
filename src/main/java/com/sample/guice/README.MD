@@ -1,4 +1,5 @@
 [MANUAL DE INSTALACION]
+=======================
 
 NOTA: Es un proyecto maven para java aplication, desarrollado en eclipse Kepler.
 1. Clone la aplicación a su repositorio local, y abra el proyecto en eclipse.
@@ -19,7 +20,8 @@ Tenga en cuenta que si se ingresa un comando diferente a los anteriores se inyec
 pero si la clase dinámica no cumple con el contrato necesario para integrarse o no se puede encontrar se inyectara 
 por defecto PaypalCreditCardProcessor.
 
-CONTRATO DE INTEGRACION CLASE DINAMICA:
+[CONTRATO DE INTEGRACION CLASE DINAMICA]
+=========================================
 	1. La clase dinámica debe pertenecer a un paquete llamado  “com.sample.guice;”.
 	2. La clase dinámica debe implementar una interface llamada “CreditCardProcessor”.
 	3. Debe poseer un constructor público que puede imprimir un texto de prueba.
@@ -32,9 +34,8 @@ Si desea cambiar la ruta de posición de la clase dinámica se pude modificar el m
 CreditCardProcessorProvider, para los files dirRoot y dirClass. Tenga en cuenta que se debe respetar la estructura 
 “com/sample/guice/” del directorio.
 
-
 [MANUAL TÉCNICO]
-
+================
 En general para realizar la inyección de dependencias se utilizó GUICE 3.0.
 
 Para el ejemplo se tiene un la implementación de un servicio de cobro (RealBillingService) en donde se especifica la inyección 
