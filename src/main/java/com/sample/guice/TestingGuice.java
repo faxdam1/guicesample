@@ -15,25 +15,32 @@ public class TestingGuice {
 	 */
 	public static void main(String[] args) throws IOException {
 	
-		
-		InputStreamReader isr = new InputStreamReader(System.in);
-		BufferedReader br = new BufferedReader (isr);
-		String strComando="";
+		InputStreamReader inputStreamReader;
+		BufferedReader bufferedReader;
+		String strComando;
+		boolean salir;
 		Injector injector;
 		BillingService billingService;
 		
+		inputStreamReader = new InputStreamReader(System.in);
+		bufferedReader = new BufferedReader(inputStreamReader);
+		salir = false;
 		
-		while(!strComando.toUpperCase().equals("salir".toUpperCase())){
+		do {
 			System.out.println("\nIntroduzca un comando: ");
-			strComando = br.readLine();
-			if(!strComando.equals("salir")){
-				injector = Guice.createInjector(new BillingModule(strComando.toLowerCase()));
-				billingService = injector.getInstance(RealBillingService.class);
-				System.out.println("RealBillingService : "+billingService);		
-			}
+			strComando = bufferedReader.readLine();
+			strComando = strComando.toLowerCase();
+			salir = strComando.equals("salir");
+			
+			if(salir) {
+				System.out.println("Ejemplo finalizado.");		
+			} else {
+				injector = Guice.createInjector(new BillingModule(strComando));
 				
-		}
-	  
+				billingService = injector.getInstance(RealBillingService.class);
+				
+				System.out.println("RealBillingService : " + billingService);
+			}
+		} while(!salir);
 	}
-
 }

@@ -1,5 +1,5 @@
 package com.sample.guice;
 
-public interface BillingService{
+public interface BillingService {
 
 }

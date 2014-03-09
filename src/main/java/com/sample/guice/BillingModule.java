@@ -1,35 +1,27 @@
 package com.sample.guice;
 
-import java.util.logging.Logger;
-
 import com.google.inject.AbstractModule;
-import com.google.inject.Provider;
-import com.google.inject.name.Names;
 
 public class BillingModule extends AbstractModule {
 	
-	private String strType;
-	public BillingModule(String strType){
-		this.strType=strType;		
+	private String tipo;
+	
+	public BillingModule(String tipo) {
+		this.tipo = tipo;		
 	}
 	
 	@Override
 	protected void configure() {
 		bind(TransactionLog.class).to(DatabaseTransactionLog.class);
 		
-		if(strType.equals("paypal")){
+		if(tipo.equals("paypal")) {
 			bind(CreditCardProcessor.class).to(PaypalCreditCardProcessor.class);
-		}
-		else
-		if(strType.equals("google")){
+		} else if(tipo.equals("google")) {
 			bind(CreditCardProcessor.class).to(GoogleCreditCardProcessor.class);
+		} else if(tipo.equals("psn")) {
+			bind(CreditCardProcessor.class).to(PSNAccountCreditCardProcessor.class);
+		} else {
+			bind(CreditCardProcessor.class).toProvider(CreditCardProcessorProvider.class);
 		}
-		else{
-			
-			bind(CreditCardProcessor.class).toProvider(CreditCardProcessorProvider.class);		
-		}
-		
 	}
-	
-	
 }
