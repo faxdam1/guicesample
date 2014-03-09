@@ -13,7 +13,7 @@ PSN: para inyectar el CreditCardProcessor tipo PSNAccountCreditCardProcessor al 
 Dinamico: o cualquier otra opción para inyectar el CreditCardProcessor dinamico que desee en el 	BillingService.
 Salir: para detener la ejecución.
 
-	4. Para probar la carga dinámica, sin salirse de la ejecución del TestingGuice introduzca en la ruta “C:/claseDinamica/com/sample/guice/” la clase “.class” que desea inyectar dinámicamente como 			CreditCardProcessor en tiempo de ejecución.
+	4. Para probar la carga dinámica, sin salirse de la ejecución del TestingGuice introduzca en la ruta “C:/claseDinamica/com/sample/guice/” la clase “.class” que desea inyectar dinámicamente como CreditCardProcessor en tiempo de ejecución.
 
 Tenga en cuenta que si se ingresa un comando diferente a los anteriores se inyectara por defecto la clase dinámica,pero si la clase dinámica no cumple con el contrato necesario para integrarse o no se puede encontrar se inyectara por defecto PaypalCreditCardProcessor.
 
