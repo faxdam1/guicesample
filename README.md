@@ -7,11 +7,11 @@ NOTA: Es un proyecto maven para java aplication, desarrollado en eclipse Kepler.
 	2. Corra la clase principal TestingGuice como una Java Application.
 	3. Ingrese alguno de los siguientes comandos en la consola seguidos de la tecla enter:
 
-Paypal: para inyectar el CreditCardProcessor tipo PaypalCreditCardProcessor al BillingService.
-Google: para inyectar el CreditCardProcessor tipo GoogleCreditCardProcessor al BillingService.
-PSN: para inyectar el CreditCardProcessor tipo PSNAccountCreditCardProcessor al BillingService.
-Dinamico: o cualquier otra opción para inyectar el CreditCardProcessor dinamico que desee en el 	BillingService.
-Salir: para detener la ejecución.
+	- Paypal: para inyectar el CreditCardProcessor tipo PaypalCreditCardProcessor al BillingService.
+	- Google: para inyectar el CreditCardProcessor tipo GoogleCreditCardProcessor al BillingService.
+	- PSN: para inyectar el CreditCardProcessor tipo PSNAccountCreditCardProcessor al BillingService.
+	- Dinamico: o cualquier otra opción para inyectar el CreditCardProcessor dinamico que desee en el BillingService.
+	- Salir: para detener la ejecución.
 
 	4. Para probar la carga dinámica, sin salirse de la ejecución del TestingGuice introduzca en la ruta “C:/claseDinamica/com/sample/guice/” la clase “.class” que desea inyectar dinámicamente como CreditCardProcessor en tiempo de ejecución.
 
@@ -51,10 +51,11 @@ Se tiene la clase BillingModule que extiende de AbstractModule de Guice y se enc
 la inyección de la instancia de la clase concreta cuando se solicite por medio del @Inject. Aquí se definió una sola regla cuando se 
 requiera una instancia de TransactionLog que retornará la implementación DatabaseTransactionLog, pero para CreditCardProcessor se 
 determina la regla de binding por medio del tipo recibido en el constructor del módulo de forma que:
-Si tipo = paypal entonces retornará la implementación PaypalCreditCardProcessor
-Si tipo = google entonces retornará la implementación GoogleCreditCardProcessor
-Si tipo = psn entonces retornará la implementación PSNAccountCreditCardProcessor
-Si tipo tiene otro valor entonces retornará la implementación retornada por el CreditCardProcessorProvider
+
+	- Si tipo = paypal entonces retornará la implementación PaypalCreditCardProcessor
+	- Si tipo = google entonces retornará la implementación GoogleCreditCardProcessor
+	- Si tipo = psn entonces retornará la implementación PSNAccountCreditCardProcessor
+	- Si tipo tiene otro valor entonces retornará la implementación retornada por el CreditCardProcessorProvider
 
 El CreditCardProcessorProvider implementa la carga de la clase que es la implementación concreta de CreditCardProcessor de forma que 
 se pueda realizar dinámicamente en tiempo de ejecución y cuando se requiera inyectar la dependencia y en caso de que no se pueda obtener 
